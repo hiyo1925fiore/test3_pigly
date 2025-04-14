@@ -14,4 +14,19 @@ use App\Http\Controllers\WeightController;
 |
 */
 
-Route::get('/', [WeightController::class, 'index']);
+Route::get('/register/step1', [WeightController::class, 'register'])
+    ->middleware(['guest'])
+    ->name('register.step1');
+Route::post('/register/step1', [WeightController::class, 'registerForm'])
+    ->middleware(['guest'])
+    ->name('register.step1.post');
+Route::get('/register/step2', [WeightController::class, 'showWeightRegisterForm'])
+    ->middleware(['guest'])
+    ->name('register.step2');
+Route::post('/register/step2', [WeightController::class, 'registerComplete'])
+    ->middleware(['guest'])
+    ->name('register.step2.post');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/weight_logs', [WeightController::class, 'weight_logs']);
+});

@@ -1,0 +1,68 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 1512px;
+    height: 71px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #cdcdcd;
+}
+
+.header__title {
+    display: inline-block;
+    margin: 0;
+    width: 125px;
+    height: 51px;
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    color: #ec87ef;
+}
+
+.header__button {
+    width: 319px;
+    height: 44px;
+}
+
+.header__button-container {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.header__button-item--setting {
+    width: 158px;
+    height: 44px;
+    text-align: center;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+}
+
+.header__button-text {
+    margin-left: 10px;
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+}
+
+.header__button-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.header__button-item--logout {
+    width: 141px;
+    height: 44px;
+    text-align: center;
+    padding: 10px;
+    margin-left: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #cdcdcd;
+    border-radius: 5px;
+}
