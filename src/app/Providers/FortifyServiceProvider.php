@@ -21,7 +21,10 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->singleton(
+            RegisterViewResponse::class,
+            CustomRegisterViewResponse::class
+        );
     }
 
     /**
@@ -35,10 +38,6 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::createUsersUsing(CreateNewUser::class);
 
-//        Fortify::registerView(function () {
-//            return redirect()->route('register.step1');
-//        });
-
         Fortify::loginView(function () {
             return view('auth.login');
         });
@@ -48,12 +47,6 @@ class FortifyServiceProvider extends ServiceProvider
 
             return Limit::perMinute(10)->by($email . $request->ip());
         });
-
-        // Fortifyの登録POSTリクエストを独自のコントローラにリダイレクト
-//        $this->app->instance(RegisteredUserController::class, function() {
-        // This will never be called because we're overriding the route
-//        return null;
-//    });
 
         $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
     }

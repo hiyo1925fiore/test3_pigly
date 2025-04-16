@@ -18,9 +18,11 @@ class WeightController extends Controller
 
     public function registerForm(AuthRequest $request)
     {
+
         $request->session()->put('register_step1');
 
-        return redirect()->route('register.step2');
+//        return redirect()->route('register.step2');
+        return redirect('/register/step2');
     }
 
     public function weightRegister()
@@ -76,6 +78,13 @@ class WeightController extends Controller
     public function login()
     {
         return view('auth.login');
+    }
+
+    public function weightLogs()
+    {
+        $weight_target = WeightTarget::where('user_id', auth()->id())->first();
+        $weight_logs = WeightLog::where('user_id', auth()->id())->get();
+        return view('weight_logs',compact('weight_target','weight_logs'));
     }
 
 }

@@ -27,6 +27,7 @@ Route::post('/register/step2', [WeightController::class, 'registerComplete'])
     ->middleware(['guest'])
     ->name('register.step2.post');
 
+
 Route::middleware('auth')->group(function () {
-    Route::get('/weight_logs', [WeightController::class, 'weight_logs']);
+    Route::get('/weight_logs', [WeightController::class, 'weightLogs']);
 });

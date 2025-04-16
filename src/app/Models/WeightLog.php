@@ -18,6 +18,10 @@ class WeightLog extends Model
         'exercise_content',
     ];
 
+    protected $dates = [
+        'date'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
